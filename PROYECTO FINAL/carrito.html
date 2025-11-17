@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - MiniMarket GONZA</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .carrito-vacio {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    
+    .carrito-vacio i {
+      font-size: 100px;
+      color: #1976D2;
+      margin-bottom: 20px;
+    }
+    
+    .carrito-contenido {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    
+    .item-carrito {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      background: white;
+      transition: transform 0.3s;
+    }
+    
+    .item-carrito:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .item-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+    
+    .item-imagen {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    
+    .item-detalles h3 {
+      color: #1976D2;
+      margin-bottom: 5px;
+    }
+    
+    .item-precio {
+      font-size: 20px;
+      font-weight: bold;
+      color: #4caf50;
+    }
+    
+    .item-acciones {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .btn-cantidad {
+      background: #1976D2;
+      color: white;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .btn-cantidad:hover {
+      background: #1565c0;
+    }
+    
+    .cantidad-display {
+      font-size: 18px;
+      font-weight: bold;
+      min-width: 40px;
+      text-align: center;
+    }
+    
+    .btn-eliminar {
+      background: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .btn-eliminar:hover {
+      background: #d32f2f;
+    }
+    
+    .resumen-carrito {
+      background: #f5f5f5;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    
+    .resumen-linea {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 18px;
+    }
+    
+    .resumen-total {
+      border-top: 2px solid #1976D2;
+      padding-top: 15px;
+      margin-top: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #1976D2;
+    }
+    
+    .btn-finalizar {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .btn-finalizar:hover {
+      background: #388e3c;
+      transform: scale(1.02);
+    }
+    
+    .btn-seguir-comprando {
+      background: #025c80;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-seguir-comprando:hover {
+      background: #013d54;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .item-carrito {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .item-info {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .item-acciones {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="titulo-animado">
+        MiniMarket GONZA
+    </h1>
+    <nav>
+      <ul>
+        <li><a class="botonnavegacion" href="market.html">Inicio</a></li>
+        <li><a class="botonnavegacion" href="productos.html">Productos</a></li>
+        <li><a class="botonnavegacion" href="market.html">Ubicaciones</a></li>
+        <li><a class="botonnavegacion" href="carrito.html">Carrito de Compras</a></li>
+        <li><a class="botonnavegacion" href="registro.html">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="TituloMinimarket">Mi Carrito de Compras</h1>
+    
+    <div id="contenedor-carrito" class="carrito-contenido">
+      <!-- El contenido se genera dinámicamente con JavaScript -->
+    </div>
+  </main>
+
+  <footer>
+    <h3><i class="fa-solid fa-location-dot"></i> Av. Jorge Chávez 314 - Lima</h3>
+    <h3><i class="fa-solid fa-phone"></i> (01) 555-1234</h3>
+    <h3><i class="fa-solid fa-envelope"></i> marketgonza@contacto.com</h3>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
